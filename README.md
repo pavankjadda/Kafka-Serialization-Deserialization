@@ -2,7 +2,7 @@
 
 ## What's this?
 This repository demonstrates Kafka Serialization and Deserialization capabilities with Generic JSON serializers/deserializers
-##How to run?
+## How to run?
 1. Download and run kafka from [Confluent](https://docs.confluent.io/current/installation/installing_cp.html#zip-and-tar-archives) or [Apache Kafka website](https://www.tutorialspoint.com/apache_kafka/apache_kafka_installation_steps.htm)
 2. Clone the repository and open IDE like IntelliJ or Eclipse
 3. Run [KafkaserializationApplication](https://github.com/pavankjadda/Kafka-Serialization-Deserialization/blob/master/src/main/java/com/kafkaserialization/KafkaserializationApplication.java) class

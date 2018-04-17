@@ -21,8 +21,10 @@ public class ReceiveEvent
         properties.put("group.id","orders_group");
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        properties.put("value.serializer", "com.kafkaserialization.serializers.OrderSerializer");
-        properties.put("value.deserializer", "com.kafkaserialization.serializers.OrderDeserializer");
+/*        properties.put("value.serializer", "com.kafkaserialization.serializers.OrderSerializer");
+        properties.put("value.deserializer", "com.kafkaserialization.serializers.OrderDeserializer");*/
+        properties.put("value.serializer", "com.kafkaserialization.serializers.KafkaJsonSerializer");
+        properties.put("value.deserializer", "com.kafkaserialization.serializers.KafkaJsonDeserializer");
         Consumer<String, Order> kafkaConsumer=new KafkaConsumer<String, Order>(properties);
 
         kafkaConsumer.subscribe(Arrays.asList("order"));
@@ -31,7 +33,7 @@ public class ReceiveEvent
             ConsumerRecords<String, Order> events = kafkaConsumer.poll(100);
             for (ConsumerRecord<String, Order> event : events)
             {
-                System.out.println("Event received " + event.value().orderId);
+                System.out.println("Event received " + event.toString());
             }
         }
     }

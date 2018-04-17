@@ -31,8 +31,10 @@ public class SendEvent
         properties.put("buffer.memory", 33554432);
         properties.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        properties.put("value.serializer", "com.kafkaserialization.serializers.OrderSerializer");
-        properties.put("value.deserializer", "com.kafkaserialization.serializers.OrderDeserializer");
+/*        properties.put("value.serializer", "com.kafkaserialization.serializers.OrderSerializer");
+        properties.put("value.deserializer", "com.kafkaserialization.serializers.OrderDeserializer");*/
+        properties.put("value.serializer", "com.kafkaserialization.serializers.KafkaJsonSerializer");
+        properties.put("value.deserializer", "com.kafkaserialization.serializers.KafkaJsonDeserializer");
 
         kafkaProducer = new KafkaProducer<>(properties);
     }
